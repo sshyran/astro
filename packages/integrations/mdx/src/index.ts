@@ -1,13 +1,13 @@
 import type { AstroMarkdownOptions } from '@astrojs/markdown-remark';
-import { compile as mdxCompile } from '@mdx-js/mdx';
-import { PluggableList } from '@mdx-js/mdx/lib/core.js';
-import mdxPlugin, { Options as MdxRollupPluginOptions } from '@mdx-js/rollup';
+import type { PluggableList } from '@mdx-js/mdx/lib/core.js';
 import type { AstroIntegration } from 'astro';
+import type { Options as RemarkRehypeOptions } from 'remark-rehype';
+import type { VFile } from 'vfile';
+import type { Plugin as VitePlugin } from 'vite';
+import { compile as mdxCompile } from '@mdx-js/mdx';
+import mdxPlugin, { Options as MdxRollupPluginOptions } from '@mdx-js/rollup';
 import { parse as parseESM } from 'es-module-lexer';
 import fs from 'node:fs/promises';
-import type { Options as RemarkRehypeOptions } from 'remark-rehype';
-import { VFile } from 'vfile';
-import type { Plugin as VitePlugin } from 'vite';
 import {
 	getRehypePlugins,
 	getRemarkPlugins,
