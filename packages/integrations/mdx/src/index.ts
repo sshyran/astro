@@ -1,4 +1,3 @@
-import type { AstroMarkdownOptions } from '@astrojs/markdown-remark';
 import { markdownConfigDefaults } from '@astrojs/markdown-remark';
 import type { PluggableList } from '@mdx-js/mdx/lib/core.js';
 import type { AstroIntegration } from 'astro';
@@ -23,7 +22,7 @@ const RAW_CONTENT_ERROR =
 const COMPILED_CONTENT_ERROR =
 	'MDX does not support compiledContent()! If you need to read the HTML contents to calculate values (ex. reading time), we suggest injecting frontmatter via rehype plugins. Learn more on our docs: https://docs.astro.build/en/guides/integrations-guide/mdx/#inject-frontmatter-via-remark-or-rehype-plugins';
 
-export type MdxOptions = Omit<Required<AstroMarkdownOptions>, 'remarkPlugins' | 'rehypePlugins'> & {
+export type MdxOptions = Omit<typeof markdownConfigDefaults, 'remarkPlugins' | 'rehypePlugins'> & {
 	extendMarkdownConfig: boolean;
 	recmaPlugins: PluggableList;
 	// Markdown allows strings as remark and rehype plugins.
@@ -185,7 +184,6 @@ function applyDefaultOptions({
 	defaults: MdxOptions;
 }): MdxOptions {
 	return {
-		drafts: options.drafts ?? defaults.drafts,
 		syntaxHighlight: options.syntaxHighlight ?? defaults.syntaxHighlight,
 		extendMarkdownConfig: options.extendMarkdownConfig ?? defaults.extendMarkdownConfig,
 		recmaPlugins: options.recmaPlugins ?? defaults.recmaPlugins,
