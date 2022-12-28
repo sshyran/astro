@@ -1524,10 +1524,6 @@ export interface SSRResult {
 	_metadata: SSRMetadata;
 }
 
-export type MarkdownAstroData = {
-	frontmatter: MD['frontmatter'];
-};
-
 /* Preview server stuff */
 export interface PreviewServer {
 	host?: string;
